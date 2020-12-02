@@ -45,4 +45,21 @@ function setupMapErr(center){
         center: center,
         zoom: 4
     })
+
+    var nav = new mapboxgl.NavigationControl();
+
+    var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+      });
+      
+      map.addControl(directions, 'top-left');
+      map.addControl(nav);
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+        positionOptions: {
+        enableHighAccuracy: true
+        },
+        trackUserLocation: true
+        })
+        );
 }
